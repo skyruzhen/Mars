@@ -23,11 +23,11 @@
         </bean>
 
     <!--2:配置SqlSessionFactory对象 -->
-        <bean id="sqlSesssionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-            <property name="dataSource" value="dataSouce"/>
+        <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+            <property name="dataSource" ref="dataSource"/>
             <property name="configLocation" value="classpath:mybatis-config.xml"/>
             <property name="typeAliasesPackage" value="com.ruzhen.pojo"/>
-            <property name="mapperLocations" value="classpath:mapper/*.xml"/>
+
         </bean>
 
     <!--3:配置扫描Dao接口包，动态实现Dao接口，注入到spring容器中-->

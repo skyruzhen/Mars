@@ -6,7 +6,7 @@
     </head>
 <body>
 <h1>
-    <img src="${pageContext.request.contextPath}/statics/tomcat.gif">
+    <img src="${pageContext.request.contextPath}/WEB-INF/statics/tomcat.gif">
     tomcat的欢迎首页SSS
 </h1>
 </body>
