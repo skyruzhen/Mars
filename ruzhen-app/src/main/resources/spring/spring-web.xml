@@ -17,4 +17,22 @@
 
         <!--2：扫描web相关的bean-->
         <context:component-scan base-package="com.ruzhen.constroller"/>
+
+        <!--3:设置资源文件路径-->
+        <mvc:resources mapping="/statics/**" location="WEB-INF/statics/"/>
+        <!--4:配置SimpleMappingExceptionResolver-->
+ <!--       <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+            <property name="exceptionMappings">
+                <map>
+                    <entry key="ResourceNotFoundException" value="common/error/resourceNotFoundError"/>
+                    <entry key="DataAccessException" value="common/error/dataAccessError"/>
+                </map>
+            </property>
+            <property name="statusCodes">
+                <map>
+                    <entry key="common/error/resourceNotFoundError" value="404"/>
+                    <entry key="common/error/dataAccessError" value="500"/>
+                </map>
+            </property>
+        </bean>-->
 </beans>

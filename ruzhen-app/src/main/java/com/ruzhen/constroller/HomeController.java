@@ -1,9 +1,13 @@
 package com.ruzhen.constroller;
 
+import org.springframework.dao.RecoverableDataAccessException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import java.net.URL;
+import java.util.Properties;
 
 
 /**
@@ -18,7 +22,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/home")
 public class HomeController {
     @RequestMapping(value = "/index.html", method = RequestMethod.GET)
-    public String index(Model model){
+    public String index(Model model) {
         return "home";
     }
 
