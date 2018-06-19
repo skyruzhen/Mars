@@ -21,7 +21,7 @@
         <!--3:设置资源文件路径-->
         <mvc:resources mapping="/statics/**" location="WEB-INF/statics/"/>
         <!--4:配置SimpleMappingExceptionResolver-->
- <!--       <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
             <property name="exceptionMappings">
                 <map>
                     <entry key="ResourceNotFoundException" value="common/error/resourceNotFoundError"/>
@@ -34,5 +34,5 @@
                     <entry key="common/error/dataAccessError" value="500"/>
                 </map>
             </property>
-        </bean>-->
+        </bean>
 </beans>

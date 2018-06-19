@@ -1,9 +1,8 @@
 package com.ruzhen.constroller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import javax.servlet.http.HttpServlet;
 
 /**
  * 〈一句话功能简述〉<br>
@@ -13,6 +12,11 @@ import javax.servlet.http.HttpServlet;
  * @create 2018/6/19
  * @since 1.0.0
  */
-public class ErrorController extends HttpServlet {
-
+@Controller
+@RequestMapping("error")
+public class ErrorController{
+    @RequestMapping("404")
+    public String handler1(Model mode){
+        return "statics/404";
+    }
 }

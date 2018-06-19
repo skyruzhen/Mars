@@ -22,7 +22,8 @@ import java.util.Properties;
 @RequestMapping("/home")
 public class HomeController {
     @RequestMapping(value = "/index.html", method = RequestMethod.GET)
-    public String index(Model model) {
+    public String index(Model model) throws RecoverableDataAccessException {
+        if(model != null) throw new RecoverableDataAccessException("test");
         return "home";
     }
 
