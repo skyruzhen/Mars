@@ -34,6 +34,9 @@
         <url-pattern>*.html</url-pattern>
     </servlet-mapping>
 
+    <listener>
+        <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+    </listener>
     <!-- 字符集过滤器-->
     <filter>
         <filter-name>encodingFilter</filter-name>

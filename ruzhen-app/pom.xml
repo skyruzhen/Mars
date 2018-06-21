@@ -153,11 +153,56 @@
             <artifactId>hessian</artifactId>
             <version>4.0.7</version>
         </dependency>
+        <dependency>
+            <groupId>com.ruzhen</groupId>
+            <artifactId>ruzhen-core</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
 
 
     </dependencies>
 
+    <!-- 多环境配置-->
+    <profiles>
+        <!--开发环境-->
+        <profile>
+            <id>dev</id>
+            <activation>
+                <!-- 设置为默认激活-->
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <build>
+                <resources>
+                    <resource>
+                        <directory>src/main/profiles/dev</directory>
+                    </resource>
+                    <resource>
+                        <directory>src/main/resources</directory>
+                    </resource>
+                </resources>
+            </build>
+        </profile>
+
+        <!--生产环境-->
+        <profile>
+            <id>pro</id>
+            <build>
+                <resources>
+                    <resource>
+                        <directory>src/main/profiles/pro</directory>
+                    </resource>
+                    <resource>
+                        <directory>src/main/resources</directory>
+                    </resource>
+                </resources>
+            </build>
+        </profile>
+    </profiles>
+
+
     <build>
+        <finalName>${project.artifactId}</finalName>
         <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
             <plugins>
                 <plugin>
@@ -191,5 +236,21 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+
+     <!--   &lt;!&ndash; 使用指定的filter进行过滤，在执行mvn命令的时候带上-P peo就代表生产环境，就会加载生产环境的properties，默认-Pdev&ndash;&gt;
+        &lt;!&ndash; filters&ndash;&gt;
+        <filters>
+            <filte>src/main/resources/properties/${env}</filter>
+        </filters>-->
+<!--        <resources>
+            &lt;!&ndash; 资源过滤&ndash;&gt;
+            <resource>
+                <directory>
+                   src/main/resources
+                </directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>-->
+
     </build>
 </project>
