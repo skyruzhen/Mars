@@ -100,7 +100,11 @@ public class MessageUtil {
         News news = new News();
         news.setTitle("公众号介绍");
         news.setDescription("学习测试阶段。");
-        news.setPicUrl("");
+        news.setPicUrl("http://ruzhen.free.ngrok.cc/ruzhen-app/iamges/Koala.jpg");
+        news.setUrl("www.imooc.com");
+
+
+        return message;
     }
 
 }
