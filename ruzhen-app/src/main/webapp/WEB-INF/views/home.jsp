@@ -8,9 +8,9 @@
 <head>
     <meta name=viewport content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
 </head>
-<f:view>
-    <h:outputLabel value="Hello, world"/>
-</f:view>
+
+<body>
+
 <h1 style="align-content: center" >
     个人书签
 </h1>
@@ -18,5 +18,8 @@
 <a href="https://www.ngrok.cc/download.html">Ngrok客户端</a><br/>
 <a href="https://www.imooc.com/video/7791">慕课网微信公众号开发进阶</a><br/>
 
+<br/>
+<a href="${pageContext.request.contextPath}/wxLogin/auth.html">微信公众号授权登录</a>
+</body>
 
 </html>

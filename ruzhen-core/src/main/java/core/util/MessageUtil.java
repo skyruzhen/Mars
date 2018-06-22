@@ -27,8 +27,13 @@ public class MessageUtil {
     public static final String MESSAGE_IAMGE="image";
     public static final String MESSAGE_VOICE="voice";
     public static final String MESSAGE_VIDEO="video";
-    public static final String MESSAGE_SUBSCIRBE="subscirbe";
+    public static final String MESSAGE_SUBSCIRBE="subscribe";
     public static final String MESSAGE_EVENT = "event";
+    public static final String MESSAGE_EVENT_EVENT = "event";
+    public static final String MESSAGE_VIEW = "view";
+    public static final String MESSAGE_SCANCODE = "scancode_push";
+    public static final String MESSAGE_LOCATION = "location";
+    private static final String MESSAGE_NEWS ="news" ;
 
     /**
      * xml转换为map集合
@@ -66,7 +71,8 @@ public class MessageUtil {
     public static String menuText(){
         StringBuffer sb = new StringBuffer();
         sb.append("欢迎您的关注，请按照菜单提示进行操作：\n\n");
-        sb.append("1:课程介绍");
+        sb.append("1:课程介绍\n");
+        sb.append("2:图文介绍");
         return sb.toString();
     }
 
@@ -85,7 +91,7 @@ public class MessageUtil {
      * @param textMessage
      * @return
      */
-    public static String newsMassageToXml(TextMessage textMessage){
+    public static String newsMassageToXml(NewsMessage textMessage){
         XStream xStream = new XStream();
         xStream.alias("xml",textMessage.getClass());
         xStream.alias("item",new News().getClass());
@@ -100,9 +106,18 @@ public class MessageUtil {
         News news = new News();
         news.setTitle("公众号介绍");
         news.setDescription("学习测试阶段。");
-        news.setPicUrl("http://ruzhen.free.ngrok.cc/ruzhen-app/iamges/Koala.jpg");
+        news.setPicUrl("http://ruzhen.free.ngrok.cc/ruzhen-app/images/Koala.jpg");
         news.setUrl("www.imooc.com");
 
+        newsList.add(news);
+        newsMessage.setToUserName(fromUserName);
+        newsMessage.setFromUserName(toUserName);
+        newsMessage.setCreateTime(new Date().toString());
+        newsMessage.setMsgType(MESSAGE_NEWS);
+        newsMessage.setArticles(newsList);
+        newsMessage.setArticleCount(newsList.size());
+
+        message = newsMassageToXml(newsMessage);
 
         return message;
     }
