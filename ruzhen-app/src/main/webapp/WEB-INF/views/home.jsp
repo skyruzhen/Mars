@@ -19,7 +19,18 @@
 <a href="https://www.imooc.com/video/7791">慕课网微信公众号开发进阶</a><br/>
 
 <br/>
-<a href="${pageContext.request.contextPath}/wxLogin/auth.html">微信公众号授权登录</a>
+<a href="${pageContext.request.contextPath}/wxLogin/auth.html">微信公众号授权登录</a><br/>
+
+<h2 style="align-content: center" >
+    前端学习
+</h2>
+
+<a href="https://www.cnblogs.com/zhouyu2017/p/6485265.html">nodejs</a><br/>
+<a href="https://www.cnblogs.com/zhouyu2017/p/6485265.html">vscode下载</a><br/>
+<a href="https://blog.csdn.net/qq_38906523/article/details/77278403">vscode常用插件</a></br>
+
+
+
 </body>
 
 </html>
