@@ -11,7 +11,7 @@ package core.po;
 public class BaseMessage {
     private String ToUserName;
     private String FromUserName;
-    private String CreateTime;
+    private long CreateTime;
     private String MsgType;
 
     public String getToUserName() {
@@ -30,11 +30,11 @@ public class BaseMessage {
         FromUserName = fromUserName;
     }
 
-    public String getCreateTime() {
+    public long getCreateTime() {
         return CreateTime;
     }
 
-    public void setCreateTime(String createTime) {
+    public void setCreateTime(long createTime) {
         CreateTime = createTime;
     }
 

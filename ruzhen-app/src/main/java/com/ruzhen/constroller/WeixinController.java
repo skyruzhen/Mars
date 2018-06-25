@@ -67,14 +67,16 @@ public class WeixinController {
             if(MessageUtil.MESSAGE_TEXT.equals(MsgType)){
                 if("1".equals(Content)){
                     message = MessageUtil.initText(ToUserName,fromUserName, "1");
-                }else if("2".equals(Content)){
+                }else if("2".equals(Content)) {
                     message = MessageUtil.initNewsMessage(ToUserName, fromUserName);
+                }else if("3".equals(Content)){
+                    message = MessageUtil.initImageMessage(ToUserName, fromUserName);
                 }else{
                     TextMessage text = new TextMessage();
                     text.setFromUserName(ToUserName);
                     text.setToUserName(fromUserName);
                     text.setMsgType("text");
-                    text.setCreateTime(new Date().toString());
+                    text.setCreateTime(new Date().getTime());
                     text.setContent("您发送的消息是："+Content);
                     message = MessageUtil.textMassageToXml(text);
                 }

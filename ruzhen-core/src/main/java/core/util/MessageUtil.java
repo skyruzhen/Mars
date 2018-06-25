@@ -1,9 +1,7 @@
 package core.util;
 
 import com.thoughtworks.xstream.XStream;
-import core.po.News;
-import core.po.NewsMessage;
-import core.po.TextMessage;
+import core.po.*;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
@@ -81,7 +79,7 @@ public class MessageUtil {
         text.setFromUserName(ToUserName);
         text.setToUserName(fromUserName);
         text.setMsgType(MESSAGE_TEXT);
-        text.setCreateTime(new Date().toString());
+        text.setCreateTime(new Date().getTime());
         text.setContent(Content);
         return textMassageToXml(text);
     }
@@ -98,6 +96,19 @@ public class MessageUtil {
         return xStream.toXML(textMessage);
     }
 
+    public static String imageMessageToXml(ImageMessage imageMessage){
+        XStream xStream = new XStream();
+        xStream.alias("xml", imageMessage.getClass());
+        return xStream.toXML(imageMessage);
+    }
+
+    public static String musicMessageToXml(MusicMessage musicMessage){
+        XStream xStream = new XStream();
+        xStream.alias("xml", musicMessage.getClass());
+        return xStream.toXML(musicMessage);
+    }
+
+
     public static String initNewsMessage(String toUserName, String fromUserName){
         String message = null;
         List<News> newsList = new ArrayList<News>();
@@ -112,7 +123,7 @@ public class MessageUtil {
         newsList.add(news);
         newsMessage.setToUserName(fromUserName);
         newsMessage.setFromUserName(toUserName);
-        newsMessage.setCreateTime(new Date().toString());
+        newsMessage.setCreateTime(new Date().getTime());
         newsMessage.setMsgType(MESSAGE_NEWS);
         newsMessage.setArticles(newsList);
         newsMessage.setArticleCount(newsList.size());
@@ -120,6 +131,36 @@ public class MessageUtil {
         message = newsMassageToXml(newsMessage);
 
         return message;
+    }
+
+    public static String initImageMessage(String toUserName, String fromUserName){
+        String message = null;
+        Image image = new Image();
+        image.setMediaId("7mssFNHM2OUbLe8AW1EGJqkvwuhq6rcKNKG6dPpoDE7uY_Bh9AmtESkoZOnbpies");
+
+        ImageMessage imageMessage = new ImageMessage();
+        imageMessage.setFromUserName(toUserName);
+        imageMessage.setToUserName(fromUserName);
+        imageMessage.setImage(image);
+        imageMessage.setMsgType(MESSAGE_IAMGE);
+        imageMessage.setCreateTime(new Date().getTime());
+
+        return imageMessageToXml(imageMessage);
+    }
+
+    public static String initMusicMessage(String toUserName, String fromUserName){
+        String message = null;
+        Music music = new Music();
+        music.setThumbMediaId("7mssFNHM2OUbLe8AW1EGJqkvwuhq6rcKNKG6dPpoDE7uY_Bh9AmtESkoZOnbpies");
+
+        MusicMessage musicMessage = new MusicMessage();
+        musicMessage.setFromUserName(toUserName);
+        musicMessage.setToUserName(fromUserName);
+        musicMessage.setMusic(music);
+        musicMessage.setMsgType(MESSAGE_IAMGE);
+        musicMessage.setCreateTime(new Date().getTime());
+
+        return musicMessageToXml(musicMessage);
     }
 
 }
