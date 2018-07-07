@@ -6,24 +6,24 @@
         <element id="directory" name="classes">
           <element id="module-output" name="ruzhen-app" />
           <element id="module-output" name="ruzhen-core" />
+          <element id="module-output" name="ruzhen-root" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: org.springframework:spring-core:4.2.4.RELEASE" />
           <element id="library" level="project" name="Maven: commons-logging:commons-logging:1.2" />
           <element id="library" level="project" name="Maven: org.springframework:spring-beans:4.2.4.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:4.2.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-aop:4.2.4.RELEASE" />
           <element id="library" level="project" name="Maven: aopalliance:aopalliance:1.0" />
-          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.21" />
-          <element id="library" level="project" name="Maven: org.slf4j:slf4j-log4j12:1.6.1" />
-          <element id="library" level="project" name="Maven: log4j:log4j:1.2.16" />
-          <element id="library" level="project" name="Maven: com.caucho:hessian:4.0.7" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-context:4.2.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-expression:4.2.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:4.2.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-tx:4.2.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-web:4.2.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:4.2.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-test:4.2.4.RELEASE" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.21" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-log4j12:1.6.1" />
+          <element id="library" level="project" name="Maven: log4j:log4j:1.2.16" />
           <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.35" />
           <element id="library" level="project" name="Maven: c3p0:c3p0:0.9.1.1" />
           <element id="library" level="project" name="Maven: org.mybatis:mybatis:3.3.0" />
@@ -35,7 +35,34 @@
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.5.1" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.5.0" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.5.1" />
-          <element id="library" level="project" name="Maven: javax.servlet:javax.servlet-api:3.1.0" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-all:1.4.0" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-lang:1.4.0" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-config-core:1.4.0" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-config-ogdl:1.4.0" />
+          <element id="library" level="project" name="Maven: commons-beanutils:commons-beanutils:1.9.3" />
+          <element id="library" level="project" name="Maven: commons-collections:commons-collections:3.2.2" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-crypto-core:1.4.0" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-crypto-hash:1.4.0" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-crypto-cipher:1.4.0" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-event:1.4.0" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-core:1.4.0" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-cache:1.4.0" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-web:1.4.0" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-aspectj:1.4.0" />
+          <element id="library" level="project" name="Maven: org.aspectj:aspectjrt:1.8.9" />
+          <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.8.9" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-ehcache:1.4.0" />
+          <element id="library" level="project" name="Maven: net.sf.ehcache:ehcache-core:2.6.11" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-guice:1.4.0" />
+          <element id="library" level="project" name="Maven: com.google.inject:guice:3.0" />
+          <element id="library" level="project" name="Maven: javax.inject:javax.inject:1" />
+          <element id="library" level="project" name="Maven: com.google.inject.extensions:guice-multibindings:3.0" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-hazelcast:1.4.0" />
+          <element id="library" level="project" name="Maven: com.hazelcast:hazelcast:3.7.2" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-quartz:1.4.0" />
+          <element id="library" level="project" name="Maven: org.opensymphony.quartz:quartz:1.6.1" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-spring:1.4.0" />
+          <element id="library" level="project" name="Maven: com.caucho:hessian:4.0.7" />
           <element id="library" level="project" name="Maven: dom4j:dom4j:1.6.1" />
           <element id="library" level="project" name="Maven: xml-apis:xml-apis:1.0.b2" />
           <element id="library" level="project" name="Maven: com.thoughtworks.xstream:xstream:1.4.7" />
@@ -47,6 +74,7 @@
           <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.9" />
           <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpcore:4.4.4" />
           <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpcore-nio:4.4.4" />
+          <element id="library" level="project" name="Maven: javax.servlet:javax.servlet-api:3.1.0" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="ruzhen-app/web/Web" />

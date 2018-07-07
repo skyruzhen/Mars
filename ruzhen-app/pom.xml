@@ -146,7 +146,14 @@
         </dependency>
         <!-- Servlet web end-->
 
-        <!-- 5：其他-->
+        <!-- 5：shiro-->
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-all</artifactId>
+            <version>1.4.0</version>
+        </dependency>
+
+        <!-- 00：其他-->
         <!-- RMI(远程方法调用)：hessian -->
         <dependency>
             <groupId>com.caucho</groupId>

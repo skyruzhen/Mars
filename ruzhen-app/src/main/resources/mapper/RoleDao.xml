@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ruzhen.dao.RoleDao">
+
+    <select id="selectRoleByUserId" resultType="java.util.List">
+        select ROLE from user_to_userrole where USER_ID = #{userId};
+    </select>
+
+    <select id="queryRole" parameterType="java.lang.String" resultType="com.taiping.bean.SysRole">
+        select * from user_role where USERNAME = #{role};
+    </select>
+
+</mapper>
