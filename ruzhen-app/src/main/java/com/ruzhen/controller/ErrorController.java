@@ -1,4 +1,4 @@
-package com.ruzhen.constroller;
+package com.ruzhen.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

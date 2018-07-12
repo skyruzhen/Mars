@@ -14,7 +14,7 @@ import java.util.List;
  * @author lizhen
  * @since 2018年7月4日
  */
-@Service
+@Service("sysRoleService")
 public class SysRoleServiceImpl implements ISysRoleService {
 //    private RoleDao roleDao;
 

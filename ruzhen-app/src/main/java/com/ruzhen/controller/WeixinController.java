@@ -1,4 +1,4 @@
-package com.ruzhen.constroller;
+package com.ruzhen.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import core.po.TextMessage;
@@ -10,7 +10,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 

@@ -1,4 +1,4 @@
-package com.ruzhen.constroller;
+package com.ruzhen.controller;
 
 import core.util.WeixinUtil;
 import org.springframework.stereotype.Controller;

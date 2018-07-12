@@ -16,7 +16,7 @@
         </bean>
 
         <!--2：扫描web相关的bean-->
-        <context:component-scan base-package="com.ruzhen.constroller"/>
+        <context:component-scan base-package="com.ruzhen.controller"/>
 
         <!--3:设置资源文件路径-->
         <mvc:resources mapping="/statics/**" location="WEB-INF/statics/"/>

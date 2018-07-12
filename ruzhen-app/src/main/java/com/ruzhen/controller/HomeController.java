@@ -1,13 +1,15 @@
-package com.ruzhen.constroller;
+package com.ruzhen.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.ruzhen.pojo.UserInfo;
+import com.ruzhen.service.IUserService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.LockedAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,12 +27,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 @RequestMapping("/home")
 public class HomeController {
+
+    @Autowired
+    private IUserService iUserService;
+
     @RequestMapping(value = "/index.html", method = RequestMethod.GET)
     public String index(Model model) {
         return "login";
     }
 
-    @RequestMapping(value = "/login.html", method = RequestMethod.GET)
+    @RequestMapping(value = "/login.html", method = RequestMethod.POST)
     public String login(UserInfo userInfo) {
         JSONObject jsonObject = new JSONObject();
         Subject subject = SecurityUtils.getSubject();

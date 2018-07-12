@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config></context:annotation-config>
+    <bean id="helloworld" class="core.beans.HelloWorld" init-method="init" destroy-method="destroy">
+        <property name="message" value="Hello World!"/>
+    </bean>
+    <!-- ApplicationContext 会自动检测由 BeanPostProcessor 接口的实现定义的 bean，注册这些 bean 为后置处理器-->
+    <bean class="core.beans.InitHelloWorld"/>
+
+    <bean id="cStartEventHandler" class="core.beans.CStartEventHandler"/>
+    <bean id="cStopEventHandler" class="core.beans.CStopEventHandler"/>
+
+</beans>

@@ -7,6 +7,7 @@ import com.ruzhen.pojo.UserInfo;
 import com.ruzhen.service.ISysPermissionService;
 import com.ruzhen.service.ISysRoleService;
 import com.ruzhen.service.IUserService;
+import com.ruzhen.service.impl.UserServiceImpl;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
@@ -18,24 +19,26 @@ import org.apache.shiro.util.SimpleByteSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 import java.util.List;
+
 
 /**
  * Created by lizhen 2018年7月4日
  * 自定义权限匹配和账号密码匹配
  */
+@Component
 public class MyShiroRealm extends AuthorizingRealm {
     Logger logger = LoggerFactory.getLogger(this.getClass());
     @Autowired
-    private ISysRoleService sysRoleService;
+    private ISysRoleService iSysRoleService;
 
-    @Autowired
-    private ISysPermissionService sysPermissionService;
+    @Resource
+    private ISysPermissionService iSysPermissionService;
 
-    @Autowired
-    private IUserService userInfoService;
+    @Resource
+    private IUserService iUserService;
 
     /**
      * 权限认证
@@ -48,11 +51,11 @@ public class MyShiroRealm extends AuthorizingRealm {
         UserInfo userInfo = (UserInfo) principals.getPrimaryPrincipal();
         try {
             SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
-            List<SysRole> roles = sysRoleService.selectRoleByUser(userInfo.getUserid());
+            List<SysRole> roles = iSysRoleService.selectRoleByUser(userInfo.getUserid());
             for (SysRole role : roles) {
                 authorizationInfo.addRole(role.getName());
             }
-            List<SysPermission> sysPermissions = sysPermissionService.selectPermByUser(userInfo);
+            List<SysPermission> sysPermissions = iSysPermissionService.selectPermByUser(userInfo);
             for (SysPermission perm : sysPermissions) {
                 authorizationInfo.addStringPermission(perm.getName());
             }
@@ -70,11 +73,10 @@ public class MyShiroRealm extends AuthorizingRealm {
             throws AuthenticationException {
         //获取用户的输入的账号.
         String username = (String) token.getPrincipal();
-        logger.info(token.getCredentials().toString());
         //通过username从数据库中查找 User对象，如果找到，没找到.
         //实际项目中，这里可以根据实际情况做缓存，如果不做，Shiro自己也是有时间间隔机制，2分钟内不会重复执行该方法
-
-        UserInfo userInfo = userInfoService.selectOne(username);
+        iUserService = new UserServiceImpl();
+        UserInfo userInfo = iUserService.selectOne(username);
         if (userInfo == null) {
             logger.info("--------------------未查到此用户{}--------------------",username);
             return null;
