@@ -19,7 +19,8 @@ import org.apache.shiro.util.SimpleByteSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Configuration;
+
 import javax.annotation.Resource;
 import java.util.List;
 
@@ -28,7 +29,7 @@ import java.util.List;
  * Created by lizhen 2018年7月4日
  * 自定义权限匹配和账号密码匹配
  */
-@Component
+@Configuration
 public class MyShiroRealm extends AuthorizingRealm {
     Logger logger = LoggerFactory.getLogger(this.getClass());
     @Autowired
@@ -38,7 +39,7 @@ public class MyShiroRealm extends AuthorizingRealm {
     private ISysPermissionService iSysPermissionService;
 
     @Resource
-    private IUserService iUserService;
+    private IUserService iUserService = new UserServiceImpl();
 
     /**
      * 权限认证
@@ -75,7 +76,6 @@ public class MyShiroRealm extends AuthorizingRealm {
         String username = (String) token.getPrincipal();
         //通过username从数据库中查找 User对象，如果找到，没找到.
         //实际项目中，这里可以根据实际情况做缓存，如果不做，Shiro自己也是有时间间隔机制，2分钟内不会重复执行该方法
-        iUserService = new UserServiceImpl();
         UserInfo userInfo = iUserService.selectOne(username);
         if (userInfo == null) {
             logger.info("--------------------未查到此用户{}--------------------",username);

@@ -8,7 +8,7 @@
 
     <!-- 注入shiro bean end-->
     <!--扫描组件的包目录-->
-    <context:annotation-config/>
+
         <!-- 自定义Realm-->
     <bean id="myRealm" class="com.ruzhen.shiro.MyShiroRealm"/>
 

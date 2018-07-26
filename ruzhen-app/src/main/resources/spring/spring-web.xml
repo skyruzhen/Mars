@@ -7,6 +7,7 @@
         <!--0：开启SpringMVC注解模式-->
         <!--简化配置：-->
         <mvc:annotation-driven/>
+    <context:annotation-config/>
         <mvc:default-servlet-handler/>
         <!--1:配置jsp显示ViewResolver-->
         <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -20,6 +21,9 @@
 
         <!--3:设置资源文件路径-->
         <mvc:resources mapping="/statics/**" location="WEB-INF/statics/"/>
+        <mvc:resources mapping="swagger-ui.html" location="classpath:/META-INF/resources/"/>
+        <mvc:resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars/"/>
+
         <!--4:配置SimpleMappingExceptionResolver-->
         <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
             <property name="exceptionMappings">
@@ -35,4 +39,5 @@
                 </map>
             </property>
         </bean>
+     <bean  class="com.ruzhen.config.SwaggerConfig"/>
 </beans>

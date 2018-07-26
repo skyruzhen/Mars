@@ -2,7 +2,8 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <context:annotation-config></context:annotation-config>
     <bean id="helloworld" class="core.beans.HelloWorld" init-method="init" destroy-method="destroy">
@@ -13,5 +14,33 @@
 
     <bean id="cStartEventHandler" class="core.beans.CStartEventHandler"/>
     <bean id="cStopEventHandler" class="core.beans.CStopEventHandler"/>
+    <bean id="student" class="core.aop.Student">
+        <property name="name" value="Zara"/>
+        <property name="age"  value="11"/>
+    </bean>
+
+
+    <!-- Spring AOP-->
+    <!-- 定义一个切面-->
+    <aop:config>
+        <aop:aspect id="log" ref="logging">
+            <!-- 声明一个切点-->
+            <aop:pointcut id="selectAll" expression="execution(* core.aop.*.*(..))"/>
+            <aop:before pointcut-ref="selectAll" method="beforeAdvice"/>
+            <aop:after-returning pointcut-ref="selectAll"  returning="retVal" method="afterReturningAdvice"/>
+        </aop:aspect>
+    </aop:config>
+
+    <aop:config>
+        <aop:aspect id="log2" ref="logging">
+            <!-- 声明一个切点-->
+            <aop:pointcut id="selectOne" expression="execution(* core.aop.*.*(..))"/>
+            <aop:after pointcut-ref="selectOne" method="beforeAdvice"/>
+            <aop:after-throwing pointcut-ref="selectOne" throwing="ex" method="AfterThrowingAdvice"/>
+        </aop:aspect>
+    </aop:config>
+
+    <bean id="logging" class="core.aop.Logging"/>
+
 
 </beans>

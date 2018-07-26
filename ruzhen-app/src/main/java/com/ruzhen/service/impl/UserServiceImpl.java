@@ -6,7 +6,7 @@ import core.util.Utf8;
 import org.apache.shiro.crypto.hash.Sha1Hash;
 import org.springframework.stereotype.Service;
 
-@Service("userInfoService")
+@Service("iUserService")
 public class UserServiceImpl implements IUserService {
 
     @Override

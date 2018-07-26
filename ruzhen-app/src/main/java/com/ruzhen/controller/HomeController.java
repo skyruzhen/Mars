@@ -3,6 +3,7 @@ package com.ruzhen.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.ruzhen.pojo.UserInfo;
 import com.ruzhen.service.IUserService;
+import io.swagger.annotations.ApiOperation;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.IncorrectCredentialsException;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 
 /**
@@ -31,13 +33,14 @@ public class HomeController {
     @Autowired
     private IUserService iUserService;
 
+    @ApiOperation(value="一个测试API",notes = "第一个测试api")
     @RequestMapping(value = "/index.html", method = RequestMethod.GET)
     public String index(Model model) {
         return "login";
     }
 
     @RequestMapping(value = "/login.html", method = RequestMethod.POST)
-    public String login(UserInfo userInfo) {
+    public ModelAndView login(UserInfo userInfo) {
         JSONObject jsonObject = new JSONObject();
         Subject subject = SecurityUtils.getSubject();
         UsernamePasswordToken token = new UsernamePasswordToken(userInfo.getUsername(), userInfo.getPassword());
@@ -54,7 +57,10 @@ public class HomeController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return jsonObject.toString();
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("UserInfo");
+        mv.addObject(jsonObject);
+        return mv;
     }
 
 }

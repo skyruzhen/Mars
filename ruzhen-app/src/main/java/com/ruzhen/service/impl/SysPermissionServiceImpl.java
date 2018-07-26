@@ -15,7 +15,7 @@ import java.util.List;
  * @author lizhen
  * @since 2018年7月4日
  */
-@Service("sysPermissionService")
+@Service("iSysPermissionService")
 public class SysPermissionServiceImpl  implements ISysPermissionService {
 
     @Override
