@@ -10,6 +10,8 @@ import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.LockedAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,6 +31,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/home")
 public class HomeController {
+    Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     private IUserService iUserService;
@@ -40,7 +43,7 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/login.html", method = RequestMethod.POST)
-    public ModelAndView login(UserInfo userInfo) {
+    public String login(UserInfo userInfo) {
         JSONObject jsonObject = new JSONObject();
         Subject subject = SecurityUtils.getSubject();
         UsernamePasswordToken token = new UsernamePasswordToken(userInfo.getUsername(), userInfo.getPassword());
@@ -48,19 +51,23 @@ public class HomeController {
             subject.login(token);
             jsonObject.put("token", subject.getSession().getId());
             jsonObject.put("msg", "登录成功");
+            jsonObject.put("code", 200 );
         } catch (IncorrectCredentialsException e) {
             jsonObject.put("msg", "密码错误");
+            jsonObject.put("code", 2001 );
         } catch (LockedAccountException e) {
             jsonObject.put("msg", "登录失败，该用户已被冻结");
+            jsonObject.put("code", 2002 );
         } catch (AuthenticationException e) {
             jsonObject.put("msg", "该用户不存在");
+            jsonObject.put("code", 2003);
         } catch (Exception e) {
             e.printStackTrace();
+            jsonObject.put("msg", e.getMessage());
+            jsonObject.put("code", 9999);
         }
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("UserInfo");
-        mv.addObject(jsonObject);
-        return mv;
+        logger.info("{} login... {}",userInfo.getUsername(), jsonObject.get("msg"));
+        return jsonObject.toJSONString();
     }
 
 }

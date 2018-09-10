@@ -81,12 +81,12 @@
 			            });
 			            return false;
 			        }
-			        var pswd = MD5(username +"#" + password),
-			        	data = {pswd:pswd,email:username,rememberMe:$("#rememberMe").is(':checked')};
+			        //var pswd = MD5(username +"#" + password),
+			        var	data = {password:password,username:username,rememberMe:$("#rememberMe").is(':checked')};
 			        var load = layer.load();
 			        
 			        $.ajax({
-			        	url:"${basePath}/u/submitLogin.shtml",
+			        	url:"${basePath}/home/login.html",
 			        	data:data,
 			        	type:"post",
 			        	dataType:"json",
