@@ -64,7 +64,7 @@
            oracle:视图,索引,存储过程,触发器,游标,包,常用函数 ==
 15.数据库原理
          事务的原理,锁机制,表连接,复杂查询语句(工作经验),性能调优,锁表以及解决方案==
-16.JDBC,连接池
+16.JDBC,连接池  2018-09-14
 17.Ajax,反向Ajax
 18.HTTP协议,request 和 response的原理,HTTP status(了解常用的),Https原理
 19.熟悉Linux基本命令,使用过Linux/Unix系统,可以编写shell脚本,可以在Linux上部署项目
