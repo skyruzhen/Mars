@@ -33,10 +33,8 @@ public class MyCharacterEncodingFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         LOGGER.info("----MyCharacterEncodingFilter执行----");
-        LOGGER.info("包装器处理前的参数：{}",  servletRequest.getParameterMap());
         MyCharacterEncodingRequest myCharacterEncodingRequest = new MyCharacterEncodingRequest((HttpServletRequest) servletRequest);
         filterChain.doFilter(myCharacterEncodingRequest, servletResponse);
-        LOGGER.info("包装器处理前的参数：{}",  servletRequest.getParameterMap());
     }
 
     @Override

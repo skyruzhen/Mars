@@ -7,7 +7,7 @@
         <!--0：开启SpringMVC注解模式-->
         <!--简化配置：-->
         <mvc:annotation-driven/>
-    <context:annotation-config/>
+        <context:annotation-config/>
         <mvc:default-servlet-handler/>
         <!--1:配置jsp显示ViewResolver-->
         <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -40,4 +40,7 @@
             </property>
         </bean>
      <bean  class="com.ruzhen.config.SwaggerConfig"/>
+
+
+
 </beans>

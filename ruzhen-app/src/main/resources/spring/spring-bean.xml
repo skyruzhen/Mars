@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
    <!-- 注入shiro bean start-->
 
@@ -10,6 +9,77 @@
     <!--扫描组件的包目录-->
 
         <!-- 自定义Realm-->
+<!--
     <bean id="myRealm" class="com.ruzhen.shiro.MyShiroRealm"/>
+-->
+    <!--调度工厂开始-->
+
+<!--
+    <bean id="customJobFactory" class="com.ruzhen.job.CustomJobFactory"></bean>
+-->
+
+    <bean name="quartzScheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean" >
+        <property name="dataSource" ref ="dataSource" />
+        <!-- 可选，QuartzScheduler 启动时更新己存在的Job，这样就不用每次修改targetObject后删除qrtz_job_details表对应记录了 -->
+        <property name="overwriteExistingJobs" value="true" />
+        <!-- 必须的，QuartzScheduler 延时启动，应用启动完后 QuartzScheduler 再启动 -->
+        <property name="startupDelay" value="2" />
+        <!-- 重要：customJobFactory 是为了解决Spring quartz Job不能依赖注入。 -->
+<!--
+        <property name="jobFactory" ref="customJobFactory"></property>
+-->
+        <!-- applicationContextSchedulerContextKey：配置这个可以获取spring容器中的context -->
+        <property name="applicationContextSchedulerContextKey" value="applicationContextKey"/>
+        <property name="configLocation" value="classpath:quartz.properties"/>
+
+        <!--设置定时任务随web启动-->
+        <property name="autoStartup" value="true"/>
+
+        <property name="triggers">
+            <list>
+                <ref bean="definedInXMLcronTrigger"/>
+            </list>
+        </property>
+    </bean>
+    <!--调度工厂结束-->
+
+
+    <bean id="testDemo" class="com.ruzhen.pojo.UserInfo"/>
+
+    <!-- 定时任务1-->
+    <bean id="definedInXMLJobDetail" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <!--必填项：jobDetail-->
+        <property name="jobClass" value="com.ruzhen.job.Job1Demo"/>
+        <!--必填项：jobName-->
+        <property name="name" value="jobName1"/>
+        <!--必填项：job group name-->
+        <property name="group" value="jobGroupName1"/>
+        <!--必填项：是否持久的-->
+        <property name="durability" value="true"/>
+        <!--必填项：是否中断后可恢复-->
+        <property name="requestsRecovery" value="true"/>
+    </bean>
+
+    <bean id="definedInXMLcronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <!--必填项：trigger Name-->
+        <property name="name" value="triggerName1"/>
+        <!--必填项：group Name-->
+        <property name="group" value="triggerGroupName1"/>
+        <property name="jobDetail" ref="definedInXMLJobDetail"/>
+
+        <!--必填项：定义任务时间-->
+        <property name="cronExpression" value="0/10 * * * * ?"/>
+
+        <!--选填项：定义时区-->
+        <property name="timeZone" ref="timeZone"/>
+        <property name="misfireInstruction" value="1"/>
+
+    </bean>
+
+    <bean id="timeZone" class="java.util.SimpleTimeZone">
+        <constructor-arg value="0"/>
+        <constructor-arg value="GMT+08:00"/>
+    </bean>
+
 
 </beans>

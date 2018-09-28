@@ -95,7 +95,8 @@
 			        	},
 			        	success:function(result){
 				        	layer.close(load);
-				    		if(result && result.status != 200){
+				        	console.log(result);
+				    		if(result && result.code != 200){
 				    			layer.msg(result.message,function(){});
 				    			$('.password').val('');
 				    			return;

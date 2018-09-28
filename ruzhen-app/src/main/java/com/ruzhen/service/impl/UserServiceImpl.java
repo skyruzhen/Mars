@@ -16,14 +16,14 @@ public class UserServiceImpl implements IUserService {
         userInfo.setUserid(1);
         userInfo.setUsername("admin");
         userInfo.setSalt(3936);
-        userInfo.setPassword("5724ca6d20fd9f192ccea1eb582291da50505c63");
+        userInfo.setPassword("99eba5c557e43e34db2a325433fef34fbab59bab");
         return userInfo;
     }
 
 
     //TODO
     //测试 将spring security中的密码 转换为 shiro识别的密码
-    public static void main(String[] args) {
+    public static void main0(String[] args) {
         String salt = "3936";  //盐值
         byte[] password =  Utf8.encode("admin");
         String result = new Sha1Hash(password,"3396",1).toString();
@@ -31,14 +31,16 @@ public class UserServiceImpl implements IUserService {
     }
 
     //ehour 密码加密方式 验证并登录系统
-    public static void main1(String[] args) {
-        String salt = String.valueOf((int)(Math.random()  * 10000));
+    public static void main(String[] args) {
+//        String salt = String.valueOf((int)(Math.random()  * 10000));
+        String salt = "3936";
         System.out.println(salt);
-        byte[] password =  Utf8.encode("root{"+salt+"}");
+        byte[] password =  Utf8.encode("admin{"+salt+"}");
 
-        String result = Utf8.decode(password);
+        //String result = Utf8.decode(password);
+        String result = new Sha1Hash(password,"",1).toString();
+
         System.out.println(result);
-//        String result = new Sha1Hash(password,"",1).toString();
 //        System.out.println(result);
     }
 }

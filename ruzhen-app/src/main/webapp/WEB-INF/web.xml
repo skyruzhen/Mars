@@ -65,18 +65,18 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
-    <filter>
+   <!-- <filter>
         <filter-name>ShiroFilter</filter-name>
         <filter-class>
             org.apache.shiro.web.servlet.IniShiroFilter
         </filter-class>
-        <!-- no init-param means load the INI config
-            from classpath:shiro.ini -->
+        &lt;!&ndash; no init-param means load the INI config
+            from classpath:shiro.ini &ndash;&gt;
     </filter>
     <filter-mapping>
         <filter-name>ShiroFilter</filter-name>
         <url-pattern>/*</url-pattern>
-    </filter-mapping>
+    </filter-mapping>-->
 
     <!--  过滤器根据注册顺序执行-->
     <filter>

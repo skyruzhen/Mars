@@ -15,8 +15,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 
@@ -39,10 +41,12 @@ public class HomeController {
     @ApiOperation(value="一个测试API",notes = "第一个测试api")
     @RequestMapping(value = "/index.html", method = RequestMethod.GET)
     public String index(Model model) {
+        model.addAttribute("basePath", "/ruzhen-app");
         return "login";
     }
 
     @RequestMapping(value = "/login.html", method = RequestMethod.POST)
+    @ResponseBody
     public String login(UserInfo userInfo) {
         JSONObject jsonObject = new JSONObject();
         Subject subject = SecurityUtils.getSubject();
