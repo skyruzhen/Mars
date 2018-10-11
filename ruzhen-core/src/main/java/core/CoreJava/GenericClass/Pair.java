@@ -1,5 +1,7 @@
 package core.CoreJava.GenericClass;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.function.Supplier;
 
 /**
@@ -15,7 +17,10 @@ public class Pair<T> {
     private T first;
     private T second;
     private T unused;
+//    private static T singleInstance; //Error
+
     public Pair(){
+//        first = new T(); //Error
         first = null;
         second = null;
     }
@@ -44,4 +49,14 @@ public class Pair<T> {
     public static <T> Pair<T> makePair(Supplier<T> constr){
         return new Pair<>(constr.get(), constr.get());
     }
+
+    public static<T> Pair<T> makePair(Class<T> cl){
+        try {
+            return new Pair<>(cl.newInstance(), cl.newInstance());
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 }
