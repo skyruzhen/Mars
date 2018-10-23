@@ -12,6 +12,11 @@ public class Manager extends Employee{
 
     private int level;
 
+    public Manager(){
+        super("null", 0D, 0, 0, 0);
+
+    }
+
     public int getLevel() {
         return level;
     }

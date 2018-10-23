@@ -30,6 +30,7 @@ public class Services {
         return newInstance(DEFAULT_PROVIDER_NAME);
     }
     public static Service newInstance(String name){
+        //第1条 考虑用静态工厂方法代替构造器
         Provider p = providers.get(name);
         if(p == null){
             throw new IllegalArgumentException("No provider registered with name:"+name);

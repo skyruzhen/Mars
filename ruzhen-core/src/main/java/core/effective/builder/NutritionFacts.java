@@ -53,6 +53,7 @@ public class NutritionFacts {
     }
 
     private NutritionFacts(Builder builder){
+        //第2条： 遇到多个构造器参数时要考虑用构造器
         servingSize  = builder.servingSize;
         servings     = builder.servings;
         calories     = builder.calories;

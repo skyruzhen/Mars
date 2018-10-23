@@ -10,7 +10,10 @@ package core.effective.singleton;
  */
 public enum Elvis {
     INSTANCE;
+    private  int i = 0;
     public void leaveTheBuilding(){
         // to do something
+        i++;
+        System.out.println("用枚举实现简洁的单例 i="+i);
     }
 }

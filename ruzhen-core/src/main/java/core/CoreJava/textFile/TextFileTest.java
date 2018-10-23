@@ -56,6 +56,6 @@ public class TextFileTest {
 
     public static Employee readEmployee(Scanner in){
 
-        return new Employee();
+        return null;
     }
 }
