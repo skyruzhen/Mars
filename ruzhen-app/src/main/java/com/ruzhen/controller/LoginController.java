@@ -1,6 +1,6 @@
 package com.ruzhen.controller;
 
-import core.util.WeixinUtil;
+import com.ruzhen.utils.WeixinUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 

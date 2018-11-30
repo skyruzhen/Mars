@@ -1,4 +1,4 @@
-package core.util;
+package com.ruzhen.utils;
 
 import com.alibaba.fastjson.JSONObject;
 import core.menu.Button;
@@ -6,7 +6,6 @@ import core.menu.ClickButton;
 import core.menu.Menu;
 import core.menu.ViewButton;
 import core.po.AccessToken;
-import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -19,7 +18,6 @@ import org.apache.http.util.EntityUtils;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.Hashtable;
 
 /**
  * 〈一句话功能简述〉<br>

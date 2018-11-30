@@ -1,10 +1,10 @@
 package com.ruzhen.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.ruzhen.utils.MessageUtil;
+import com.ruzhen.utils.WeixinUtil;
 import core.po.TextMessage;
 import core.util.CheckUtil;
-import core.util.MessageUtil;
-import core.util.WeixinUtil;
 import org.dom4j.DocumentException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

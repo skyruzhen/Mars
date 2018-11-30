@@ -1,6 +1,7 @@
-package core.util;
+package com.ruzhen;
 
 import com.alibaba.fastjson.JSONObject;
+import com.ruzhen.utils.WeixinUtil;
 import core.po.AccessToken;
 import org.junit.Test;
 

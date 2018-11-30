@@ -50,6 +50,7 @@ public class HomeController {
     public String login(UserInfo userInfo) {
         JSONObject jsonObject = new JSONObject();
         Subject subject = SecurityUtils.getSubject();
+
         UsernamePasswordToken token = new UsernamePasswordToken(userInfo.getUsername(), userInfo.getPassword());
         try {
             subject.login(token);

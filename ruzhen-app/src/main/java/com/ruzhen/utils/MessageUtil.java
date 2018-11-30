@@ -1,4 +1,4 @@
-package core.util;
+package com.ruzhen.utils;
 
 import com.thoughtworks.xstream.XStream;
 import core.po.*;

@@ -33,7 +33,7 @@
         <property name="configLocation" value="classpath:quartz.properties"/>
 
         <!--设置定时任务随web启动-->
-        <property name="autoStartup" value="true"/>
+        <property name="autoStartup" value="false"/> <!--关闭-->
 
         <property name="triggers">
             <list>
