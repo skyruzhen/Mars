@@ -1,4 +1,4 @@
-package com.ruzhen.concurrent.chapter07;
+package concurrent.chapter07;
 
 public class TestCheckedExceptionInThread {
     public static void main(String[] args) {

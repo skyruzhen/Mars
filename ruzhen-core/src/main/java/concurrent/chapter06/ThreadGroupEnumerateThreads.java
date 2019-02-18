@@ -1,4 +1,4 @@
-package com.ruzhen.concurrent.chapter06;
+package concurrent.chapter06;
 
 import java.util.concurrent.TimeUnit;
 

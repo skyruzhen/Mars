@@ -1,4 +1,4 @@
-package com.ruzhen.concurrent.chapter08;
+package concurrent.chapter08;
 
 public class InternalTask implements Runnable{
     private  final RunnableQueue runnableQueue;

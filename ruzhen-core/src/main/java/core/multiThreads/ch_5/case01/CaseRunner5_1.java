@@ -1,4 +1,4 @@
-package core.multiThreads.ch_5;
+package core.multiThreads.ch_5.case01;
 
 import core.util.Tools;
 

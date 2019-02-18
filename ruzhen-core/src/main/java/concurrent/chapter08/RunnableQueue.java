@@ -1,4 +1,4 @@
-package com.ruzhen.concurrent.chapter08;
+package concurrent.chapter08;
 
 public interface RunnableQueue {
     //当有新的任务进来时首先会offer到队列中

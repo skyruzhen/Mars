@@ -1,4 +1,4 @@
-package com.ruzhen.concurrent.chapter10;
+package concurrent.chapter10;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

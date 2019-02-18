@@ -1,4 +1,4 @@
-package com.ruzhen.concurrent.chapter04;
+package concurrent.chapter04;
 
 import java.util.HashMap;
 

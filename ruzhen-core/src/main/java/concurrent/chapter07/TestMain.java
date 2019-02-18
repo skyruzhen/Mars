@@ -1,4 +1,4 @@
-package com.ruzhen.concurrent.chapter07;
+package concurrent.chapter07;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Base64;

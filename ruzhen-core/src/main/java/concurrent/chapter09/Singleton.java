@@ -1,4 +1,4 @@
-package com.ruzhen.concurrent.chapter09;
+package concurrent.chapter09;
 
 public class Singleton {
     private static Singleton instance = new Singleton();

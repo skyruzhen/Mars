@@ -1,4 +1,4 @@
-package core.multiThreads.ch_5;
+package core.multiThreads.ch_5.case01;
 
 import core.util.Tools;
 import java.util.Random;
@@ -46,7 +46,7 @@ public class AlarmAgent {
                 //连接已建立完毕，通知以唤醒告警发送线程
                 notify();
             }
-        } catch (InterruptedException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

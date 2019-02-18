@@ -1,4 +1,4 @@
-package com.ruzhen.concurrent.chapter05;
+package concurrent.chapter05;
 
 import java.util.ArrayList;
 import java.util.Collections;

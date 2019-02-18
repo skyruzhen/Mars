@@ -1,4 +1,4 @@
-package com.ruzhen.concurrent.chapter10;
+package concurrent.chapter10;
 
 public class BootStrapClassLoader {
     public static void main(String[] args) {

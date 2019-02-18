@@ -1,4 +1,4 @@
-package com.ruzhen.concurrent.chapter04;
+package concurrent.chapter04;
 
 public class TicketWindowRunnable implements Runnable {
     private int index = 1;

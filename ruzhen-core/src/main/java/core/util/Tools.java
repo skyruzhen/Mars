@@ -1,55 +1,5 @@
-<<<<<<< HEAD
 package core.util;
 
-import java.io.Closeable;
-import java.io.IOException;
-import java.util.Random;
-
-public final class Tools {
-
-    public static void silentClose(Closeable ... closeables){
-        if(null == closeables){
-            return;
-        }
-        for(Closeable c:closeables){
-            if(null == c){
-                continue;
-            }
-            try {
-                c.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public static void split(String str, String[] result, char delimeter) {
-        int partsCount = result.length;
-        int posOfDelimeter;
-        int fromIndex = 0;
-        String recordField;
-        int i = 0;
-        while(i < partsCount){
-            posOfDelimeter = str.indexOf(delimeter, fromIndex);
-            if( -1 == posOfDelimeter){
-                recordField = str.substring(fromIndex);
-                result[i] = recordField;
-                break;
-            }
-            recordField = str.substring(fromIndex, posOfDelimeter);
-            result[i] = recordField;
-            i++;
-            fromIndex = posOfDelimeter + 1;
-        }
-    }
-
-    public static void randomPause(int ms) throws InterruptedException {
-        Random random = new Random();
-        int rms = random.nextInt(ms);
-        Thread.sleep(rms);
-    }
-}
-=======
 /*
 授权声明：
 本源码系《Java多线程编程实战指南（核心篇）》一书（ISBN：978-7-121-31065-2，以下称之为“原书”）的配套源码，
@@ -62,10 +12,10 @@ public final class Tools {
 https://github.com/Viscent/javamtia
 http://www.broadview.com.cn/31065
 */
-package core.util;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import sun.misc.Unsafe;
-
 import java.io.*;
 import java.lang.reflect.Field;
 import java.math.BigInteger;
@@ -73,12 +23,12 @@ import java.security.DigestInputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public final class Tools {
   private static final Random rnd = new Random();
-  private static final Logger LOGGER = Logger.getAnonymousLogger();
+  private static final Logger LOGGER = LoggerFactory.getLogger(Tools.class);
+
+
 
   public static void startAndWaitTerminated(Thread... threads)
       throws InterruptedException {
@@ -181,7 +131,7 @@ public final class Tools {
   }
 
   public static void log(String message) {
-    LOGGER.log(Level.INFO, message);
+    LOGGER.info(message);
   }
 
   public static String md5sum(final InputStream in) throws NoSuchAlgorithmException, IOException {
@@ -224,4 +174,4 @@ public final class Tools {
   }
 
 }
->>>>>>> c8a4dc4c256fdb0d601f4aa748638e36b6f3b3c2
+

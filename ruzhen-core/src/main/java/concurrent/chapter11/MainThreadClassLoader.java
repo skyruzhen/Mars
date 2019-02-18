@@ -1,4 +1,4 @@
-package com.ruzhen.concurrent.chapter11;
+package concurrent.chapter11;
 
 import static java.lang.Thread.currentThread;
 

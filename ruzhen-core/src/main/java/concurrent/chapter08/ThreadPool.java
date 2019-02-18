@@ -1,4 +1,4 @@
-package com.ruzhen.concurrent.chapter08;
+package concurrent.chapter08;
 
 public interface ThreadPool {
     //提交任务到线程池

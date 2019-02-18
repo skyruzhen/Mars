@@ -1,4 +1,4 @@
-package com.ruzhen.concurrent.chapter05;
+package concurrent.chapter05;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;

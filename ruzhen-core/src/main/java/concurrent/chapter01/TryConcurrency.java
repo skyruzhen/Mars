@@ -1,4 +1,5 @@
-package com.ruzhen.concurrent.chapter01;
+package concurrent.chapter01;
+
 
 public class TryConcurrency {
     public static void main(String[] args) {

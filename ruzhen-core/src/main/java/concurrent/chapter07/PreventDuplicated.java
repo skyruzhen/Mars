@@ -1,12 +1,9 @@
-package com.ruzhen.concurrent.chapter07;
+package concurrent.chapter07;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.attribute.PosixFilePermission;
-import java.nio.file.attribute.PosixFilePermissions;
-import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 public class PreventDuplicated {

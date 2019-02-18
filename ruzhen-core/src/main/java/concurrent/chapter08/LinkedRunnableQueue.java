@@ -1,4 +1,4 @@
-package com.ruzhen.concurrent.chapter08;
+package concurrent.chapter08;
 
 import java.util.LinkedList;
 

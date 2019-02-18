@@ -1,4 +1,4 @@
-package com.ruzhen.concurrent.chapter10;
+package concurrent.chapter10;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

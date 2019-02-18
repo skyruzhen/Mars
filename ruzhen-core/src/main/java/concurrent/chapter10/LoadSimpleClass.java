@@ -1,4 +1,4 @@
-package com.ruzhen.concurrent.chapter10;
+package concurrent.chapter10;
 
 public class LoadSimpleClass {
     public static void main(String[] args) throws ClassNotFoundException, IllegalAccessException, InstantiationException {

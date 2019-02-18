@@ -1,4 +1,4 @@
-package com.ruzhen.concurrent.chapter02;
+package concurrent.chapter02;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;

@@ -1,6 +1,5 @@
-package com.ruzhen.concurrent.chapter05;
+package concurrent.chapter05;
 
-import java.sql.Time;
 import java.util.concurrent.TimeUnit;
 
 public class SynchronizedDefect {
