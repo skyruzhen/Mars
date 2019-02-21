@@ -6,8 +6,9 @@
         <!--配置SpringMvc-->
         <!--0：开启SpringMVC注解模式-->
         <!--简化配置：-->
+        <!--启动 使用注解自动装配-->
+         <context:annotation-config/>
         <mvc:annotation-driven/>
-        <context:annotation-config/>
         <mvc:default-servlet-handler/>
         <!--1:配置jsp显示ViewResolver-->
         <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
