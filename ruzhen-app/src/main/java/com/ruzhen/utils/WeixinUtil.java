@@ -1,11 +1,11 @@
 package com.ruzhen.utils;
 
 import com.alibaba.fastjson.JSONObject;
-import core.menu.Button;
-import core.menu.ClickButton;
-import core.menu.Menu;
-import core.menu.ViewButton;
-import core.po.AccessToken;
+import core.wechat.menu.Button;
+import core.wechat.menu.ClickButton;
+import core.wechat.menu.Menu;
+import core.wechat.menu.ViewButton;
+import core.wechat.po.AccessToken;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;

@@ -2,7 +2,7 @@ package com.ruzhen;
 
 import com.alibaba.fastjson.JSONObject;
 import com.ruzhen.utils.WeixinUtil;
-import core.po.AccessToken;
+import core.wechat.po.AccessToken;
 import org.junit.Test;
 
 import java.io.IOException;

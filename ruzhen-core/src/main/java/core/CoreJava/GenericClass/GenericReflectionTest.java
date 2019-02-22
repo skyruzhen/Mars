@@ -19,7 +19,7 @@ public class GenericReflectionTest {
         else{
             try(Scanner in = new Scanner(System.in))
             {
-                System.out.println("Enter class name (e.g. java.util.Collection):");
+                System.out.println("Enter class name (e.g. java.httpclient.Collection):");
                 name = in.next();
             }
 

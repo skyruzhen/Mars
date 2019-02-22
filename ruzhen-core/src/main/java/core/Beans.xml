@@ -5,7 +5,12 @@
        xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
+    <!--基于注解的自动装配 开关开启（半自动）-->
     <context:annotation-config></context:annotation-config>
+
+    <!-- 自动定义和装配 全自动 -->
+    <context:component-scan base-package="core"/>
+
     <bean id="helloworld" class="core.Spring.beans.HelloWorld" init-method="init" destroy-method="destroy">
         <property name="message" value="Hello World!"/>
     </bean>
