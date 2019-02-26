@@ -1,7 +1,6 @@
 package com.ruzhen.utils;
 
 import com.thoughtworks.xstream.XStream;
-import core.wechat.menu.po.*;
 import core.wechat.po.*;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
