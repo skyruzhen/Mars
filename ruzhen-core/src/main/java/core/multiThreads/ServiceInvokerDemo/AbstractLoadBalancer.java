@@ -2,8 +2,6 @@ package core.multiThreads.ServiceInvokerDemo;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import sun.plugin2.main.server.HeartbeatThread;
-
 import java.util.Random;
 
 /**

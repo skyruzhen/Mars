@@ -11,8 +11,6 @@
     <modules>
         <module>ruzhen-core</module>
         <module>ruzhen-app</module>
-        <module>ruzhen-boot</module>
     </modules>
-
 
 </project>

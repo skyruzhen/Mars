@@ -1,4 +1,4 @@
-package com.ruzhen.service.util;
+package core.service.util;
 
         import org.apache.http.HttpEntity;
         import org.apache.http.HttpHost;

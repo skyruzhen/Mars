@@ -2,11 +2,8 @@ package core.Spring.mvc4.interceptor;
 
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import static jdk.nashorn.internal.runtime.regexp.joni.encoding.CharacterType.S;
 
 public class DemoInterecptor extends HandlerInterceptorAdapter {  //继承HandlerInterceptorAdapter类来实现自定义拦截器
 
