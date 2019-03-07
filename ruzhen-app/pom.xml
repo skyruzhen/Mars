@@ -168,6 +168,18 @@
             <version>2.2.1</version>
         </dependency>
 
+        <!-- activeMQ  消息队列-->
+        <dependency>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>activemq-all</artifactId>
+            <version>5.15.8</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>activemq-spring</artifactId>
+            <version>5.15.8</version>
+        </dependency>
     </dependencies>
 
     <!-- 多环境配置-->
